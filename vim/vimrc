@@ -1,0 +1,31 @@
+syntax on
+set nocompatible
+set autoindent
+set smartindent
+set ru
+"set cindent shiftwidth=4
+set softtabstop=4
+set tabstop=4
+set shiftwidth=4
+set backspace=2
+set hlsearch
+autocmd FileType c set expandtab
+autocmd FileType cpp set expandtab
+autocmd FileType php set expandtab
+autocmd FileType js set expandtab
+autocmd FileType python set expandtab
+autocmd FileType vue set expandtab
+set nu
+highlight Comment ctermfg=green guifg=green
+set statusline=%((%1*%M%*%R%Y)%)%f%=%k[%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}]%(\[%03l-%02c]%)\ %P~%L
+set history=50
+autocmd BufReadPost * if line("'\"")|exe "normal '\"" | endif
+
+hi Normal ctermfg=grey ctermbg=black
+hi Visual ctermfg=green ctermbg=black
+hi Search term=reverse cterm=standout ctermfg=green  ctermbg=yellow
+hi IncSearch term=reverse cterm=standout ctermfg=green ctermbg=yellow
+hi PmenuSel ctermbg=Green ctermfg=Yellow
+
+au BufNewFile,BufRead *.vue set filetype=html
+au BufNewFile,BufRead *.ejs set filetype=html
