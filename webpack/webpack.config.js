@@ -50,13 +50,16 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-          title:'test',
-          template: 'src/index.ejs',
-          filename: 'index.html',
-          showErrors: true,
-		  hash: true,
-          inject: 'body',
-          chunks: ['main']
-      })
+      title:'test',
+      template: 'src/index.ejs',
+      filename: 'index.html',
+      showErrors: true,
+	  hash: true,
+      inject: 'body',
+      chunks: ['main']
+    }),
+	new CopyWebpackPlugin(
+	  {patterns:[{from:'src/res', to:'res'}]}
+	)
   ]
 };
